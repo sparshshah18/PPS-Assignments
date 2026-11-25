@@ -1,0 +1,11 @@
+No Code, ONLY ALGORITHM
+
+Algorithm for GMail login :
+1) Start
+2) Open Gmail application
+3) Enter your Email ID
+4) Enter your paassword
+5) Check whether the written data is correct
+6) If everything is correct, display "Login successful"
+7) If something is incorrect, display "Login unsuccessful, Incorrect password or email-id given"
+8) Stop
