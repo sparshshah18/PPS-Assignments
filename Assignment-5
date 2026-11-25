@@ -1,0 +1,75 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    int choice, len, cmp;
+    char s1[100], s2[100], temp[100];
+
+    do {
+        printf("\n--- String Operations Menu ---\n");
+        printf("1. String Length (strlen)\n");
+        printf("2. String Copy (strcpy)\n");
+        printf("3. String Concatenate (strcat)\n");
+        printf("4. String Compare (strcmp)\n");
+        printf("5. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+        getchar();
+
+        switch (choice) {
+            case 1:
+                printf("Enter a string: ");
+                fgets(s1, sizeof(s1), stdin);
+                s1[strcspn(s1, "\n")] = '\0';
+                len = strlen(s1);
+                printf("Length of string: %d\n", len);
+                break;
+
+            case 2:
+                printf("Enter source string: ");
+                fgets(s1, sizeof(s1), stdin);
+                s1[strcspn(s1, "\n")] = '\0';
+                strcpy(temp, s1);
+                printf("Copied string: %s\n", temp);
+                break;
+
+            case 3:
+                printf("Enter first string: ");
+                fgets(s1, sizeof(s1), stdin);
+                s1[strcspn(s1, "\n")] = '\0';
+                printf("Enter second string: ");
+                fgets(s2, sizeof(s2), stdin);
+                s2[strcspn(s2, "\n")] = '\0';
+                strcpy(temp, s1);
+                strcat(temp, s2);
+                printf("Concatenated string: %s\n", temp);
+                break;
+
+            case 4:
+                printf("Enter first string: ");
+                fgets(s1, sizeof(s1), stdin);
+                s1[strcspn(s1, "\n")] = '\0';
+                printf("Enter second string: ");
+                fgets(s2, sizeof(s2), stdin);
+                s2[strcspn(s2, "\n")] = '\0';
+                cmp = strcmp(s1, s2);
+                if (cmp == 0) {
+                    printf("Strings are equal.\n");
+                } else if (cmp < 0) {
+                    printf("First string is smaller than second string.\n");
+                } else {
+                    printf("First string is greater than second string.\n");
+                }
+                break;
+
+            case 5:
+                printf("Exiting program.\n");
+                break;
+
+            default:
+                printf("Invalid choice! Try again.\n");
+        }
+    } while (choice != 5);
+
+    return 0;
+}
